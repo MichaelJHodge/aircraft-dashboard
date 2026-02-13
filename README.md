@@ -97,28 +97,16 @@ npm run dev
 
 Internal users can add/import aircraft and update status/milestones.
 
-## Product screenshots (demo walkthrough)
+## Screenshots
 
-Capture these four screens before demos and place them in `docs/screenshots/`:
+If you want to include UI previews in this repo, add images under `docs/screenshots/`.
 
-- `dashboard-overview.png`
-- `aircraft-registry.png`
-- `aircraft-detail-lifecycle.png`
-- `milestone-audit-log.png`
+Recommended captures:
 
-Suggested narrative:
-
-1. Program overview and phase distribution (`dashboard-overview.png`)
-2. Registry filtering/search/import operations (`aircraft-registry.png`)
-3. Lifecycle update and program target date edit (`aircraft-detail-lifecycle.png`)
-4. Certification change traceability and audit history (`milestone-audit-log.png`)
-
-```md
-![Dashboard overview](docs/screenshots/dashboard-overview.png)
-![Aircraft registry](docs/screenshots/aircraft-registry.png)
-![Aircraft detail lifecycle](docs/screenshots/aircraft-detail-lifecycle.png)
-![Milestone audit log](docs/screenshots/milestone-audit-log.png)
-```
+- Dashboard overview
+- Aircraft registry
+- Aircraft detail (lifecycle + target delivery update)
+- Certification milestones and audit history
 
 ## CSV import format
 
