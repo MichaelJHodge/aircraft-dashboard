@@ -1,0 +1,147 @@
+.container {
+  min-height: 520px;
+}
+
+.header {
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: var(--line);
+}
+
+.progressSummary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.progressText {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.progressPercent {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--accent-teal);
+}
+
+.milestones {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.milestone {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 13px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+  background-color: transparent;
+  transition: background-color 0.12s ease, border-color 0.12s ease;
+}
+
+.milestone.completed {
+  background-color: rgba(65, 188, 174, 0.1);
+  border-color: rgba(65, 188, 174, 0.34);
+}
+
+.milestone.pending:hover {
+  background-color: var(--bg-2);
+}
+
+.checkboxWrapper {
+  padding-top: 2px;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-2);
+  flex-shrink: 0;
+}
+
+.completed .checkbox {
+  background-color: var(--accent-teal);
+  border-color: var(--accent-teal);
+}
+
+.checkmark {
+  color: #06111e;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+}
+
+.titleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 6px;
+}
+
+.name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.completed .name {
+  color: #87ddcf;
+}
+
+.date {
+  font-size: 12px;
+  color: var(--accent-teal);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.description {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin: 0 0 8px 0;
+  line-height: 1.45;
+}
+
+.requiredFor {
+  display: inline-block;
+  font-size: var(--label-size);
+  color: var(--text-muted);
+  background-color: var(--bg-2);
+  border: 1px solid var(--border-subtle);
+  padding: 3px 7px;
+  border-radius: var(--radius-xs);
+  letter-spacing: var(--label-tracking);
+  text-transform: uppercase;
+  opacity: var(--label-opacity);
+}
+
+@media (max-width: 768px) {
+  .container {
+    min-height: 460px;
+  }
+
+  .titleRow {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .milestone {
+    padding: 11px;
+  }
+}

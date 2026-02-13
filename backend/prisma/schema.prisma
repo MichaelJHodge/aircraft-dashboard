@@ -1,0 +1,135 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum AircraftPhase {
+  MANUFACTURING
+  GROUND_TESTING
+  FLIGHT_TESTING
+  CERTIFICATION
+  READY
+  DELIVERED
+}
+
+enum AircraftModel {
+  ALIA_250
+  ALIA_250C
+}
+
+enum MilestoneStatus {
+  COMPLETED
+  IN_PROGRESS
+  UPCOMING
+}
+
+enum UserRole {
+  INTERNAL
+  CUSTOMER
+}
+
+enum AuditAction {
+  CERTIFICATION_MILESTONE_UPDATED
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  role         UserRole
+  customerName String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Aircraft {
+  id                    String                   @id
+  tailNumber            String                   @unique
+  model                 AircraftModel
+  currentPhase          AircraftPhase
+  certificationProgress Int
+  estimatedDeliveryDate DateTime
+  customerName          String?
+  lastUpdatedByEmail    String?
+  createdAt             DateTime                 @default(now())
+  updatedAt             DateTime                 @updatedAt
+
+  lifecycleStages         LifecycleStage[]
+  certificationMilestones CertificationMilestone[]
+  sustainabilityMetrics   SustainabilityMetrics?
+}
+
+model LifecycleStage {
+  id                 String          @id @default(cuid())
+  aircraftId         String
+  phase              AircraftPhase
+  status             MilestoneStatus
+  startDate          DateTime?
+  completionDate     DateTime?
+  progressPercentage Int?
+  order              Int
+
+  aircraft Aircraft @relation(fields: [aircraftId], references: [id], onDelete: Cascade)
+
+  @@index([aircraftId, order])
+}
+
+model CertificationMilestone {
+  id            String        @id
+  aircraftId    String
+  name          String
+  description   String
+  completed     Boolean
+  completedDate DateTime?
+  requiredFor   AircraftPhase
+
+  aircraft Aircraft @relation(fields: [aircraftId], references: [id], onDelete: Cascade)
+
+  @@index([aircraftId])
+}
+
+model SustainabilityMetrics {
+  id                           String @id @default(cuid())
+  aircraftId                   String @unique
+  estimatedCO2AvoidedKg        Int
+  equivalentTreesPlanted       Int
+  conventionalFuelSavedGallons Int
+
+  aircraft Aircraft @relation(fields: [aircraftId], references: [id], onDelete: Cascade)
+}
+
+model AuditLog {
+  id         String      @id @default(cuid())
+  action     AuditAction
+  actorId    String
+  actorEmail String
+  actorRole  UserRole
+  entityType String
+  entityId   String
+  details    Json
+  createdAt  DateTime    @default(now())
+
+  @@index([entityType, entityId])
+  @@index([createdAt])
+}
+
+model DomainEventDelivery {
+  id          String   @id @default(cuid())
+  eventId     String   @unique
+  eventType   String
+  source      String
+  attempts    Int      @default(0)
+  published   Boolean  @default(false)
+  lastError   String?
+  payload     Json
+  publishedAt DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([eventType, published])
+  @@index([createdAt])
+}

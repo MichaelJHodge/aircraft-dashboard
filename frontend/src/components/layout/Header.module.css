@@ -1,0 +1,99 @@
+.header {
+  background: #12141c;
+  border-bottom: var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+:global(:root[data-theme='light']) .header {
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  gap: 20px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.logo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.logoText {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-left: auto;
+  margin-right: 12px;
+}
+
+.userControls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.userText {
+  font-size: 13px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  max-width: 340px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.navLink {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 15px;
+  padding: 7px 0;
+  border-bottom: 2px solid transparent;
+  transition: color 0.12s ease, border-color 0.12s ease;
+}
+
+.navLink:hover {
+  color: var(--text-primary);
+}
+
+.navLink.active {
+  color: var(--text-primary);
+  border-bottom-color: var(--accent-blue);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+    height: 64px;
+  }
+
+  .nav {
+    gap: 20px;
+  }
+
+  .userText {
+    display: none;
+  }
+}

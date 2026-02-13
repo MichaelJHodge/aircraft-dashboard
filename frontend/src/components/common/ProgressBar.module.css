@@ -1,0 +1,58 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.track {
+  flex: 1;
+  background-color: rgba(255, 255, 255, 0.06);
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+}
+
+.fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.25s ease;
+}
+
+.default {
+  background: linear-gradient(90deg, #569aff 0%, #3f78da 100%);
+  box-shadow: 0 0 10px rgba(86, 154, 255, 0.28);
+}
+
+.warning {
+  background: linear-gradient(90deg, #e85f23 0%, #b03a1b 100%);
+  box-shadow: 0 0 10px rgba(232, 95, 35, 0.35);
+}
+
+.caution {
+  background: linear-gradient(90deg, #f0bf3c 0%, #cf9c2d 100%);
+  box-shadow: 0 0 10px rgba(240, 191, 60, 0.34);
+}
+
+.good {
+  background: linear-gradient(90deg, #61c49c 0%, #41a97f 100%);
+  box-shadow: 0 0 10px rgba(97, 196, 156, 0.32);
+}
+
+.critical {
+  background: linear-gradient(90deg, #df4c45 0%, #b2302b 100%);
+  box-shadow: 0 0 10px rgba(223, 76, 69, 0.34);
+}
+
+.complete {
+  background: linear-gradient(90deg, #469a91 0%, #2d6a63 100%);
+  box-shadow: 0 0 10px rgba(70, 154, 145, 0.35);
+}
+
+.label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  min-width: 40px;
+  text-align: right;
+}

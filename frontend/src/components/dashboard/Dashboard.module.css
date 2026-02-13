@@ -1,0 +1,92 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.header {
+  margin-bottom: 2px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 10px 0;
+  letter-spacing: -0.03em;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.summaryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+.distributionSection {
+  max-width: 940px;
+  width: 100%;
+}
+
+.headerSkeletonLine {
+  margin-top: 8px;
+}
+
+.summarySkeletonCard {
+  min-height: 152px;
+  display: grid;
+  align-content: start;
+  gap: 10px;
+}
+
+.summarySkeletonValue {
+  margin-top: 6px;
+}
+
+.distributionSkeletonTitle {
+  margin-bottom: 20px;
+}
+
+.distributionSkeletonList {
+  display: grid;
+  gap: 16px;
+}
+
+.distributionSkeletonRow {
+  display: grid;
+  gap: 8px;
+}
+
+.error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+.error p {
+  color: var(--status-blocked);
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 24px;
+  }
+
+  .summaryGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .distributionSection {
+    max-width: 100%;
+  }
+}

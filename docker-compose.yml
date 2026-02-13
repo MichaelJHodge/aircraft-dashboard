@@ -1,0 +1,59 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: aircraft-dashboard-db
+    environment:
+      POSTGRES_DB: aircraft_dashboard
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres -d aircraft_dashboard']
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: aircraft-dashboard-backend
+    environment:
+      NODE_ENV: development
+      PORT: 3001
+      API_PREFIX: /api
+      CORS_ORIGIN: http://localhost:5173
+      DATABASE_URL: postgresql://postgres:postgres@db:5432/aircraft_dashboard
+      JWT_SECRET: change-me-in-production-change-me-in-production
+      JWT_EXPIRES_IN: 8h
+      LOG_LEVEL: info
+      EVENT_PUBLISHER: log
+      EVENT_SOURCE: aircraft-dashboard.backend
+      EVENTBRIDGE_EVENT_BUS_NAME: aircraft-dashboard-bus
+      AWS_REGION: us-east-1
+      AWS_EVENTBRIDGE_ENDPOINT:
+    ports:
+      - '3001:3001'
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+      args:
+        VITE_API_URL: http://localhost:3001/api
+    container_name: aircraft-dashboard-frontend
+    ports:
+      - '5173:80'
+    depends_on:
+      - backend
+
+volumes:
+  pgdata:

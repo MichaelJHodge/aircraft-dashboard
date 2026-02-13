@@ -1,0 +1,85 @@
+.button {
+  font-family: inherit;
+  font-weight: 600;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background-color 0.12s ease, border-color 0.12s ease, color 0.12s ease, box-shadow 0.12s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.button:active:not(:disabled) {
+  filter: brightness(0.95);
+}
+
+.primary {
+  background: var(--accent-blue);
+  color: #ffffff;
+  border-color: #4a87df;
+}
+
+.primary:hover:not(:disabled) {
+  background: #71abff;
+  box-shadow: 0 0 0 1px rgba(86, 154, 255, 0.35), 0 8px 22px -16px rgba(86, 154, 255, 0.65);
+}
+
+.secondary {
+  background: transparent;
+  color: var(--text-primary);
+  border-color: var(--border-subtle);
+}
+
+.secondary:hover:not(:disabled) {
+  border-color: rgba(255, 139, 80, 0.56);
+  background: rgba(255, 77, 0, 0.12);
+  box-shadow: 0 0 10px rgba(255, 77, 0, 0.24);
+}
+
+.destructive {
+  background-color: rgba(208, 106, 106, 0.14);
+  color: #ffb4b4;
+  border-color: rgba(208, 106, 106, 0.5);
+}
+
+.destructive:hover:not(:disabled) {
+  background-color: rgba(208, 106, 106, 0.22);
+  box-shadow: 0 0 10px rgba(208, 106, 106, 0.22);
+}
+
+.ghost {
+  background-color: transparent;
+  color: var(--text-secondary);
+  border-color: transparent;
+}
+
+.ghost:hover:not(:disabled) {
+  background: rgba(255, 77, 0, 0.12);
+  color: var(--text-primary);
+  border-color: rgba(255, 139, 80, 0.56);
+  box-shadow: 0 0 10px rgba(255, 77, 0, 0.24);
+}
+
+.small {
+  padding: 6px 11px;
+  font-size: 13px;
+}
+
+.medium {
+  padding: 9px 14px;
+  font-size: 14px;
+}
+
+.large {
+  padding: 12px 18px;
+  font-size: 16px;
+}
