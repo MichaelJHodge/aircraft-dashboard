@@ -97,16 +97,6 @@ npm run dev
 
 Internal users can add/import aircraft and update status/milestones.
 
-## Screenshots
-
-If you want to include UI previews in this repo, add images under `docs/screenshots/`.
-
-Recommended captures:
-
-- Dashboard overview
-- Aircraft registry
-- Aircraft detail (lifecycle + target delivery update)
-- Certification milestones and audit history
 
 ## CSV import format
 
