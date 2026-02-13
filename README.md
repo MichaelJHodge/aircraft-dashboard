@@ -1,6 +1,6 @@
 # Aircraft Delivery & Certification Dashboard
 
-Production-ready baseline for an aviation program operations dashboard.
+Baseline for an aviation program operations dashboard.
 
 ## Why this project matters
 
@@ -13,7 +13,7 @@ This tool gives internal program and certification teams one place to:
 
 See `SHOWCASE_BRIEF.md` for a one-page stakeholder summary.
 
-## What is production-ready now
+## What is implemented now
 
 - PostgreSQL + Prisma data layer (no in-memory state)
 - Zod validation on API boundaries

@@ -44,7 +44,7 @@ It is designed to reduce delivery risk by making lifecycle state, certification 
 - Integration: pluggable event publisher (`noop`, `log`, `eventbridge`)
 - Reliability: event delivery tracking + replay job
 
-## Why this is credible for production pilots
+## Engineering maturity in current baseline
 
 - Clear API contracts with shared TypeScript types
 - Request validation at service edge
