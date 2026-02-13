@@ -13,6 +13,28 @@ This tool gives internal program and certification teams one place to:
 
 See `SHOWCASE_BRIEF.md` for a one-page stakeholder summary.
 
+## Screenshots
+
+### Login (dark)
+
+![Login (dark)](docs/screenshots/login-dark.png)
+
+### Dashboard (dark)
+
+![Dashboard (dark)](docs/screenshots/dashboard-dark.png)
+
+### Aircraft Registry (dark)
+
+![Aircraft Registry (dark)](docs/screenshots/registry-dark.png)
+
+### Aircraft Detail (dark)
+
+![Aircraft Detail (dark)](docs/screenshots/aircraft-detail-dark.png)
+
+### Dashboard (light)
+
+![Dashboard (light)](docs/screenshots/dashboard-light.png)
+
 ## What is implemented now
 
 - PostgreSQL + Prisma data layer (no in-memory state)
